@@ -8,15 +8,9 @@
 
 ## High-Level Goal
 
-The goal of this project is to analyze how effectively an AI-assisted software engineering workflow can migrate legacy Java projects to newer Java versions.
-
-The project focuses on upgrading existing Java SE 8 code bases to more modern Long-Term Support (LTS) versions such as:
-
-* Java 17 LTS
-* Java 21/25 LTS (depending on compatibility and feasibility)
-
-The migration process should preserve the functionality of the original application while modernizing the implementation and build environment.
-
+The goal of the project is to migrate legacy Java Swing Projects to a newer Java version using JavaFX.
+It should handle smaller and medium sized projects.
+In addition the workflow should avoid the problem of exceeding quota limit.
 ---
 
 ## Validation of the Project
@@ -25,29 +19,26 @@ The success of the migration will be validated using several criteria:
 
 ### Functional Validation
 
-* Existing test cases should continue to pass after migration
 * The application should still compile and run successfully
-* Integration tests should pass after all migration steps are completed
 
 ### Technical Validation
 
 * Deprecated APIs should be replaced
 * Modern Java language features should be introduced where appropriate
-* Build systems and dependencies should be updated
-
+* Dependencies should be updated
+  
 ### Modernization Validation
 
 Examples:
 
 * Migration from Java Swing to JavaFX
 * Verification whether FXML is used in migrated JavaFX GUIs
-* Usage of newer Java features such as:
-
+* Usage of newer Java features and patterns such as:
   * Lambdas
   * Streams API
   * try-with-resources
   * `java.time`
-  * pattern matching or newer syntax features (if applicable)
+  * patterns (for instance MVC) or newer syntax features (if applicable)
 
 ---
 
@@ -63,7 +54,6 @@ The agent receives old Java projects and incrementally migrates them to newer Ja
 
 ## Planned Workflow
 
-```text
 GitHub Repository
         ↓
 Scheduled GitHub Action (e.g. every 6 hours)
@@ -79,7 +69,6 @@ Compile/tests are executed
 Progress is committed and pushed
         ↓
 Workflow terminates
-```
 
 ---
 
