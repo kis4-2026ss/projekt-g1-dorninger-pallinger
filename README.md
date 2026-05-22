@@ -2,7 +2,7 @@
 
 Start der Migration im Moment mit Prompt "Clone or update repository_url, read GEMINI.md from the repository and follow the instructions"
 
-mit gemini --yolo werden automatisch alle Änderungen akzeptiert, damit man nicht jedes mal manuell bestätigen muss während der Migration 
+beim starten von der CLI Anwendung kann man optionen angeben, dass es alle Änderungen automatisch akzeptiert und nicht jedes mal manuell bestätigt werden muss(z.B. --yolo für gemini)
 
-In GEMINI.md liegen allgemeine Anweisungen für den Migrationsvorgang für gemini cli.
-In AGENT_STATE.md schreibt und updatet gemini cli seine aktuellen Arbeitsanweisungen.
+In agent_state/GEMINI.md liegen allgemeine Anweisungen für den Migrationsvorgang für gemini cli.
+In agent_state/AGENT_STATE.md schreibt und updatet gemini cli seine aktuellen Arbeitsanweisungen.
