@@ -1,0 +1,17 @@
+{
+    "project": "SampleProject1",
+    "status": "In Progress",
+    "migration_sequence": [
+        "TodoItem.java",
+        "TodoModel.java",
+        "TodoFrame.java",
+        "Main.java"
+    ],
+    "file_status": {
+        "TodoItem.java": "pending",
+        "TodoModel.java": "pending",
+        "TodoFrame.java": "pending",
+        "Main.java": "pending"
+    },
+    "history": []
+}

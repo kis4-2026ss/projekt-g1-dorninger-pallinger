@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "TodoApp": {
+      "command": "fastmcp",
+      "args": [
+        "run",
+        "/workspaces/E2 Template/mcp_server.py"
+      ]
+    }
+  }
+}
