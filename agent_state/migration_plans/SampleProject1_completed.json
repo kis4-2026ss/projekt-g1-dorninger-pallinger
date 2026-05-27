@@ -1,0 +1,23 @@
+{
+    "project": "SampleProject1",
+    "status": "Completed",
+    "migration_sequence": [
+        "TodoItem.java",
+        "TodoModel.java",
+        "TodoFrame.java",
+        "Main.java"
+    ],
+    "file_status": {
+        "TodoItem.java": "completed",
+        "TodoModel.java": "completed",
+        "TodoFrame.java": "completed",
+        "Main.java": "completed"
+    },
+    "history": [
+        "2026-05-27T11:25:21.417843: TodoItem.java -> completed",
+        "2026-05-27T11:26:15.000000: TodoModel.java -> completed",
+        "2026-05-27T11:26:16.150656: TodoModel.java -> completed",
+        "2026-05-27T11:27:19.538917: TodoFrame.java -> completed",
+        "2026-05-27T11:28:15.747818: Main.java -> completed"
+    ]
+}

@@ -217,7 +217,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-ular_dependencies']}")
-
-if __name__ == "__main__":
-    main()

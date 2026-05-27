@@ -14,6 +14,6 @@
 | Projekt-ID | Ansatz | Build | Funktion | Qualität | Autom. | **Gesamt** |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Sample_1 (Simple) | Automatisiert | | | | | |
-| Sample_1 (Simple) | Manual/Paired | | | | | |
+| Sample_1 (Simple) | Manual/Paired | 2 | 2 | 2 | 1 | 7 |
 | Sample_2 (Complex) | Automatisiert | | | | | |
 | Sample_2 (Complex) | Manual/Paired | | | | | |
