@@ -226,14 +226,18 @@ class MigrationOrchestrator:
 
     def _ensure_maven_setup(self):
         pom_path = f"{self.target_project_dir}/pom.xml"
-        if not os.path.exists(pom_path):
-            os.makedirs(os.path.dirname(pom_path), exist_ok=True)
-            plan = self._load_current_plan()
-            maven_deps = plan.get("maven_dependencies", [])
-            with open(pom_path, "w", encoding='utf-8') as f:
-                f.write(self._get_default_pom_content(maven_deps))
+        os.makedirs(os.path.dirname(pom_path), exist_ok=True)
+        
+        plan = self._load_current_plan()
+        maven_deps = plan.get("maven_dependencies", [])
+        main_class = plan.get("main_class", "Main")
+        
+        # Always write/update pom.xml to ensure the main class is correct
+        with open(pom_path, "w", encoding='utf-8') as f:
+            f.write(self._get_default_pom_content(main_class, maven_deps))
+        print(f"📄 Maven configuration updated (Main Class: {main_class})")
 
-    def _get_default_pom_content(self, additional_deps: List[Dict] = None) -> str:
+    def _get_default_pom_content(self, main_class: str, additional_deps: List[Dict] = None) -> str:
         dep_xml = ""
         if additional_deps:
             for dep in additional_deps:
@@ -258,19 +262,46 @@ class MigrationOrchestrator:
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>21.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>21.0.1</version>
         </dependency>{dep_xml}
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>{main_class}</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>"""
 
     def _initialize_new_plan(self, sequence: List[str]):
+        analysis_plan = self._load_analysis_plan()
         state = {
             "project": self.project_name,
             "status": "In Progress",
             "migration_sequence": sequence,
             "file_status": {f: "pending" for f in sequence},
-            "history": []
+            "history": [],
+            "main_class": analysis_plan.get("main_class", "Main"),
+            "maven_dependencies": analysis_plan.get("maven_dependencies", [])
         }
         self._save_plan(state)
+
+    def _load_analysis_plan(self) -> Dict:
+        analysis_plan_path = f"agent_state/migration_plans/{self.project_name}_in_progress.json"
+        if os.path.exists(analysis_plan_path):
+            with open(analysis_plan_path, "r", encoding='utf-8') as f:
+                return json.load(f)
+        return {}
 
     def _update_file_status(self, filename: str, status: str):
         state = self._load_current_plan()

@@ -29,3 +29,4 @@ Required Workflow (Automated):
 Rules:
 - Focus on automation: Prefer updating `agent_state/agent_state.json` over manual Markdown updates.
 - Scripts and instructions must work for any Java Swing project provided.
+- **JavaFX Build Configuration:** The `pom.xml` must always include the `javafx-maven-plugin` with the `mainClass` correctly set to the class containing the `public static void main` method. This allows execution via `mvn javafx:run`.

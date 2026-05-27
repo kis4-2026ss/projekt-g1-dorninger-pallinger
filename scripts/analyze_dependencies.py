@@ -65,11 +65,21 @@ class DependencyAnalyzer:
                 class_name = os.path.basename(rel_path)[:-5]
                 referenced_types = self._extract_referenced_types(tree)
                 imports = [imp.path for imp in tree.imports]
+                package_name = tree.package.name if tree.package else ""
                 
+                # Check for public static void main
+                has_main = False
+                for _, node in tree.filter(javalang.tree.MethodDeclaration):
+                    if node.name == "main" and "static" in node.modifiers and "public" in node.modifiers:
+                        has_main = True
+                        break
+
                 self.file_metadata[rel_path] = {
                     "class_name": class_name,
+                    "package_name": package_name,
                     "referenced_types": referenced_types,
-                    "imports": imports
+                    "imports": imports,
+                    "has_main": has_main
                 }
                 self.class_to_file_map[class_name] = rel_path
                 
@@ -193,9 +203,19 @@ def main():
         external_libs = analyzer.get_external_libraries()
         maven_deps = resolve_maven_coordinates(external_libs)
         
+        # Identify main class
+        main_class = "Main" # Default
+        for meta in analyzer.file_metadata.values():
+            if meta.get("has_main"):
+                pkg = meta.get("package_name")
+                cls = meta.get("class_name")
+                main_class = f"{pkg}.{cls}" if pkg else cls
+                break
+
         plan_data = {
             "project_name": project_name,
             "source_directory": args.source_dir,
+            "main_class": main_class,
             "migration_sequence": result["migration_sequence"],
             "circular_dependencies": result["circular_dependencies"],
             "detected_libraries": list(external_libs),
