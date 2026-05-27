@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>SampleProject1</artifactId>
+    <artifactId>paint</artifactId>
     <version>1.0</version>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -11,6 +11,11 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
+            <version>21.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
             <version>21.0.1</version>
         </dependency>
     </dependencies>
