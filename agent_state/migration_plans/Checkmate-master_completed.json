@@ -1,0 +1,43 @@
+{
+    "project": "Checkmate-master",
+    "status": "Completed",
+    "migration_sequence": [
+        "checkmate/chess/com/Piece.java",
+        "checkmate/chess/com/Bishop.java",
+        "checkmate/chess/com/Rook.java",
+        "checkmate/chess/com/Pawn.java",
+        "checkmate/chess/com/Square.java",
+        "checkmate/chess/com/King.java",
+        "checkmate/chess/com/Queen.java",
+        "checkmate/chess/com/Knight.java",
+        "checkmate/chess/com/Board.java",
+        "checkmate/chess/com/RunChess.java"
+    ],
+    "file_status": {
+        "checkmate/chess/com/Piece.java": "completed",
+        "checkmate/chess/com/Bishop.java": "completed",
+        "checkmate/chess/com/Rook.java": "completed",
+        "checkmate/chess/com/Pawn.java": "completed",
+        "checkmate/chess/com/Square.java": "completed",
+        "checkmate/chess/com/King.java": "completed",
+        "checkmate/chess/com/Queen.java": "completed",
+        "checkmate/chess/com/Knight.java": "completed",
+        "checkmate/chess/com/Board.java": "completed",
+        "checkmate/chess/com/RunChess.java": "completed"
+    },
+    "history": [
+        "2026-05-27T21:20:46.732077: checkmate/chess/com/Piece.java -> completed",
+        "2026-05-27T21:25:00.000000: checkmate/chess/com/Bishop.java -> completed",
+        "2026-05-27T21:22:13.687367: checkmate/chess/com/Bishop.java -> completed",
+        "2026-05-27T21:22:53.913932: checkmate/chess/com/Rook.java -> completed",
+        "2026-05-27T21:23:19.402371: checkmate/chess/com/Pawn.java -> completed",
+        "2026-05-27T21:24:31.831689: checkmate/chess/com/Square.java -> completed",
+        "2026-05-27T21:25:19.438372: checkmate/chess/com/King.java -> completed",
+        "2026-05-27T22:27:00.885335: checkmate/chess/com/Queen.java -> completed",
+        "2026-05-27T22:27:54.930320: checkmate/chess/com/Knight.java -> completed",
+        "2026-05-27T22:28:48.671301: checkmate/chess/com/Board.java -> completed",
+        "2026-05-27T22:32:36.387886: checkmate/chess/com/RunChess.java -> completed"
+    ],
+    "main_class": "checkmate.chess.com.RunChess",
+    "maven_dependencies": []
+}
